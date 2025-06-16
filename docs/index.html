@@ -12,7 +12,10 @@
   <script>
     window.$docsify = {
       loadSidebar: true,
-      subMaxLevel: 3
+      subMaxLevel: 3,
+      alias: {
+        '/.*/_sidebar.md': '/_sidebar.md'  // 确保所有路径都能找到侧边栏
+      }
     }
   </script>
 </body>
