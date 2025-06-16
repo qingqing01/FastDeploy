@@ -11,13 +11,13 @@
 推荐使用Docker镜像方式进行部署。
 
 ## 1. 拉取镜像，创建容器
-``` shell
+```shell
 docker pull ccr-2vdh3abv-pub.cnc.bj.baidubce.com/paddlepaddle/fastdeploy:2.0.0.0-alpha
 ```
 
 ## 2. 启动服务
 在容器内执行如下命令，启动服务
-``` shell
+```shell
 python -m fastdeploy.entrypoints.openai.api_server \
        --model ERNIE-45 \
        --port 8180 \
@@ -39,12 +39,12 @@ python -m fastdeploy.entrypoints.openai.api_server \
 ```
 
 也可以通过服务探活接口判断服务的启动状态是否成功，执行如下命令返回200即表示服务启动成功
-``` shell
+```shell
 curl -i http://0.0.0.0:${port}/health
 ```
 
 通过如下命令进行服务请求
-``` shell
+```shell
 curl -X POST "http://0.0.0.0:8188/v1/chat/completions" \
 -H "Content-Type: application/json" \
 -d '{
@@ -55,7 +55,7 @@ curl -X POST "http://0.0.0.0:8188/v1/chat/completions" \
 ```
 
 因为FastDeploy服务提供的接口兼容OpenAI协议，你也可以通过如下Python代码调用服务,
-``` python
+```python
 import openai
 host = "0.0.0.0"
 port = "8188"
